@@ -52,15 +52,15 @@ The portfolio reflects my focus on building modern web applications, AI-powered 
 
 | Homepage | About Section |
 |:---:|:---:|
-| <img src="public/screenshots/homepage.png" width="400" alt="Portfolio Homepage" /> | <img src="public/screenshots/about.png" width="400" alt="About Section" /> |
+| <img src="public/hero section.png" width="400" alt="Portfolio Homepage" /> | <img src="public/about section.png" width="400" alt="About Section" /> |
 
 | Services | Projects |
 |:---:|:---:|
-| <img src="public/screenshots/services.png" width="400" alt="Services Section" /> | <img src="public/screenshots/projects.png" width="400" alt="Projects Section" /> |
+| <img src="public/services section.png" width="400" alt="Services Section" /> | <img src="public/projects section.png" width="400" alt="Projects Section" /> |
 
-| Expertise | SDLC |
+| Expertise | Contact |
 |:---:|:---:|
-| <img src="public/screenshots/expertise.png" width="400" alt="Technical Expertise" /> | <img src="public/screenshots/sdlc.png" width="400" alt="Software Development Lifecycle" /> |
+| <img src="public/expertise section.png" width="400" alt="Technical Expertise" /> | <img src="public/contact section.png" width="400" alt="Contact Section" /> |
 
 </div>
 
