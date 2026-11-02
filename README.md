@@ -9,15 +9,13 @@ A personal portfolio showcasing my work, technical expertise, projects, and serv
 
 <br/>
 
-![Next.js](https://img.shields.io/badge/Next.js-React%20Framework-000000?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-UI%20Development-61DAFB?style=for-the-badge&logo=react&logoColor=black)
-![TypeScript](https://img.shields.io/badge/TypeScript-Type%20Safety-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-Styling-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
-![Vercel](https://img.shields.io/badge/Vercel-Deployed-000000?style=for-the-badge&logo=vercel&logoColor=white)
+![Portfolio](https://img.shields.io/badge/Project-Personal%20Portfolio-2563EB?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)
+![Deployment](https://img.shields.io/badge/Deployment-Vercel-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 
 <br/>
 
-**[🌐 Visit Portfolio Website](https://saqlainhub.vercel.app)**
+**[🌍 View Live Website](https://saqlainhub.vercel.app)**
 
 ---
 </div>
@@ -76,45 +74,13 @@ The portfolio reflects my focus on building modern web applications, AI-powered 
 | Vercel | Deployment and hosting |
 | Git & GitHub | Version control and source code management |
 
-## 🚀 Getting Started
+## 🚀 Live Demo
 
-Follow these steps to run SaqlainHub locally.
+The project was deployed using Netlify.
 
-### 1. Clone Repository
+<text></text>
 
-```bash
-git clone https://github.com/saqlainhub/SaqlainHub-Potfolio.git
-```
-
-### 2. Navigate to Project
-
-```bash
-cd SaqlainHub-Potfolio
-```
-
-### 3. Install Dependencies
-
-```bash
-npm install
-```
-
-### 4. Start Development Server
-
-```bash
-npm run dev
-```
-
-Open the following URL in your browser:
-
-```text
-http://localhost:3000
-```
-
-### 5. Build for Production
-
-```bash
-npm run build
-```
+**Live Website:** https://saqlainhub.vercel.app
 
 ## 🎯 Project Goals
 
