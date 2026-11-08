@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 
-type Category = "AI Engineering" | "Full-Stack" | "Web Applications";
+type Category = "Web Dev" | "Full-Stack" | "AI Engineering" | "Frontend Dev";
 
 type Screenshot = {
   src: string;
@@ -28,40 +28,47 @@ type Project = {
   liveUrl?: string;
 };
 
+
 const projects: Project[] = [
+  // 1. Support AI
   {
-    id: "customer-support-ai",
-    name: "Customer Support AI",
+    id: "support-ai",
+    name: "Support AI",
     category: "AI Engineering",
-    type: "AI-powered support platform",
+    type: "Customer Support System",
     description:
-      "A document-grounded support assistant that retrieves relevant knowledge to answer customer questions.",
+      "An AI-powered customer support application that uses rag to answer questions using business-specific knowledge.",
     overview:
-      "A full-stack support application combining a conversational interface, document ingestion, retrieval-augmented generation, and persistent application data.",
+      "Support AI is a full-stack application combining a Next.js frontend, FastAPI backend, Google Gemini, and PostgreSQL. It uses a retrieval-based workflow to connect user questions with relevant knowledge before generating responses.",
     problem:
-      "A general-purpose language model does not automatically know the contents of a business's private knowledge base. Answers need to be grounded in relevant documentation rather than relying only on model knowledge.",
+      "General-purpose AI models do not automatically have access to a company's private documentation. Customer support systems need a way to retrieve relevant business information and use it to generate context-aware responses.",
     solution:
-      "Built a document ingestion and retrieval workflow that connects uploaded knowledge to an AI-powered support experience. The frontend communicates with a Python API, while PostgreSQL stores application data.",
+      "Built a full-stack RAG application that connects a conversational interface with a Python backend, Gemini-powered response generation, and persistent PostgreSQL storage.",
     features: [
-      "PDF upload and document processing",
-      "Embeddings and retrieval-augmented generation",
-      "Answers grounded in retrieved knowledge",
-      "Source references for retrieved information",
-      "Persistent conversations",
-      "Authentication and protected application areas",
-      "PostgreSQL-backed data access",
+      "AI-powered customer support chat",
+      "Retrieval-augmented generation (RAG)",
+      "Document-based knowledge retrieval",
+      "Gemini API integration",
+      "Persistent application data",
+      "User authentication and protected routes",
+      "PostgreSQL database integration",
+      "Separate frontend and backend architecture",
     ],
     architecture: [
-      "Next.js frontend for the conversational experience",
-      "FastAPI backend for API endpoints and application logic",
-      "Document extraction, chunking, embedding, and retrieval workflow",
-      "Gemini API for language-model responses",
-      "PostgreSQL and SQLAlchemy for persistent data",
+      "Next.js and TypeScript frontend",
+      "FastAPI backend for API endpoints and business logic",
+      "Document processing and retrieval workflow",
+      "Gemini API for AI response generation",
+      "PostgreSQL database hosted on Neon",
+      "SQLAlchemy for database operations",
+      "Authentication and protected application access",
     ],
     decisions: [
       "Separate frontend and backend responsibilities",
-      "Retrieve relevant document content before generating grounded answers",
-      "Use a relational database for persistent application data",
+      "Use retrieval-augmented generation instead of relying only on model knowledge",
+      "Integrate Gemini for language-model capabilities",
+      "Use PostgreSQL for persistent application data",
+      "Build API-driven communication between the frontend and backend",
     ],
     stack: [
       "Next.js",
@@ -69,283 +76,449 @@ const projects: Project[] = [
       "Tailwind CSS",
       "Python",
       "FastAPI",
-      "PostgreSQL",
-      "SQLAlchemy",
-      "Gemini API",
+      "Pydantic",
+      "Gemini",
       "RAG",
       "Embeddings",
+      "PostgreSQL",
+      "Neon",
+      "SQLAlchemy",
+      "OAuth",
+      "Vercel"
     ],
     screenshots: [
       {
-        src: "/projects/customer-support-ai/chat.jpg",
-        alt: "Customer Support AI chat interface",
-        label: "Chat interface",
+        src: "/projects/support-ai/chat.png",
+        alt: "Chat Interface",
+        label: "Chat Interface",
       },
       {
-        src: "/projects/customer-support-ai/chat.jpg",
-        alt: "Customer Support AI knowledge-base management",
-        label: "Knowledge base",
+        src: "/projects/support-ai/dashboard.png",
+        alt: "User Dashboard",
+        label: "User Dashboard",
       },
       {
-        src: "/projects/customer-support-ai/chat.jpg",
-        alt: "Retrieved source information in Customer Support AI",
-        label: "Source retrieval",
+        src: "/projects/support-ai/login.png",
+        alt: "User Login",
+        label: "User Login",
+      },
+      {
+        src: "/projects/support-ai/tickets.png",
+        alt: "Support Tickets",
+        label: "Support Tickets",
+      },
+      {
+        src: "/projects/support-ai/admin dash.png",
+        alt: "Admin Dashboard",
+        label: "Admin Dashboard",
+      },
+      {
+        src: "/projects/support-ai/documents.png",
+        alt: "Upload Documents",
+        label: "Upload Documents",
       },
     ],
+    // Add your repository URL when ready.
+    githubUrl: "https://github.com/saqlainhub/Support-AI",
+    liveUrl: "https://ssupport-ai.vercel.app",
   },
+
+  // 2. Scholara
   {
     id: "scholara",
     name: "Scholara",
     category: "Full-Stack",
-    type: "Learning platform · PWA",
+    type: "Student Management System",
     description:
-      "A student-focused web application built with a modern Next.js stack and a persistent relational data layer.",
+      "A student management platform designed to organize routines, assignments, submissions, and teacher feedback.",
     overview:
-      "Scholara is a progressive web application built with Next.js, TypeScript, Prisma, and Neon PostgreSQL.",
+      "Scholara is a role-based education management application with dedicated experiences for students, teachers, and academic administrators. It brings academic routines, assignments, submissions, and performance monitoring into one structured platform.",
     problem:
-      "A learning platform needs a coherent application structure, responsive interface, and maintainable data layer as its workflows expand.",
+      "Managing academic routines, assignments, submissions, and feedback across students and teachers can become fragmented. Students need a clear view of their academic responsibilities, while teachers need structured ways to assign and review work.",
     solution:
-      "Built the application using a typed React/Next.js foundation, Prisma for database access, and Neon PostgreSQL for persistent storage.",
+      "Developed a centralized academic platform with role-specific dashboards, weekly academic workflows, assignment management, submission handling, and teacher review functionality.",
     features: [
-      "Progressive web application foundation",
-      "Responsive application interface",
-      "TypeScript-based component architecture",
-      "Prisma data-access layer",
-      "Neon PostgreSQL integration",
+      "Role-based Student, Teacher, and Head dashboards",
+      "Weekly academic routine management",
+      "Assignment creation and management",
+      "Student task tracking",
+      "Assignment submission and resubmission workflows",
+      "Teacher review and feedback",
+      "Assignment scoring and evaluation",
+      "Academic performance monitoring",
+      "Scheduled and ongoing work states",
+      "Timeline-based academic task organization",
     ],
     architecture: [
-      "Next.js application and React components",
-      "TypeScript for typed application code",
-      "Prisma for database access",
-      "Neon-hosted PostgreSQL",
+      "Next.js application architecture",
+      "React and TypeScript components",
+      "Role-based application workflows",
+      "Prisma ORM for structured database access",
+      "Neon PostgreSQL for persistent data storage",
       "Tailwind CSS for interface styling",
     ],
     decisions: [
-      "Use TypeScript to improve consistency across application code",
-      "Keep database access structured through Prisma",
-      "Use a responsive, PWA-oriented application foundation",
+      "Use role-based experiences to separate student, teacher, and administrator responsibilities",
+      "Structure academic work around weekly routines",
+      "Support assignment submission, resubmission, and teacher evaluation",
+      "Use Prisma to organize database access",
+      "Use PostgreSQL for relational academic data",
+      "Represent academic task states clearly in the interface",
     ],
     stack: [
       "Next.js",
       "TypeScript",
-      "React",
       "Tailwind CSS",
       "Prisma",
       "PostgreSQL",
       "Neon",
-      "PWA",
+      "Vercel",
+      "Auth"
     ],
     screenshots: [
       {
-        src: "/projects/scholara/dashboard.png",
-        alt: "Scholara main application screen",
-        label: "Application",
+        src: "/projects/scholara/student portal.png",
+        alt: "Student Dashboard",
+        label: "Student Dashboard",
       },
       {
-        src: "/projects/scholara/tasks.png",
-        alt: "Scholara task workflow",
-        label: "Task workflow",
+        src: "/projects/scholara/head portal.png",
+        alt: "Head Dashboard",
+        label: "Head Dashboard",
       },
       {
-        src: "/projects/scholara/mobile.png",
-        alt: "Scholara responsive mobile interface",
-        label: "Mobile layout",
+        src: "/projects/scholara/teacher portal.png",
+        alt: "Teacher Dashboard",
+        label: "Teacher Dashboard",
+      },
+      {
+        src: "/projects/scholara/leaderboard.png",
+        alt: "Leaderboard",
+        label: "Leaderboard",
+      },
+      {
+        src: "/projects/scholara/record.png",
+        alt: "Previous Records",
+        label: "Previous Records",
+      },
+      {
+        src: "/projects/scholara/login.png",
+        alt: "Login",
+        label: "Login",
       },
     ],
     githubUrl: "https://github.com/saqlainhub/Scholara",
+    liveUrl: "https://scholara-hub.vercel.app",
   },
+
+  // 3. SCricket
   {
-    id: "stest",
-    name: "STEST",
-    category: "Full-Stack",
-    type: "Online testing platform",
+    id: "scricket",
+    name: "SCricket",
+    category: "Web Dev",
+    type: "Interactive Circket Game",
     description:
-      "An exam-focused interface for multiple-choice practice and structured test-taking workflows.",
+      "An interactive cricket application, featuring gameplay controls, dynamic scoring, and a responsive user interface.",
     overview:
-      "A web application centred on the presentation of MCQs and a straightforward test-taking experience.",
+      "SCricket is a React-based cricket game built with Vite. The project focuses on interactive gameplay, application state management, scoring, custom player names, different levels and a user interface designed around the cricket experience.",
     problem:
-      "Students need a clear interface for reading questions, choosing answers, and moving through a practice test.",
+      "Interactive games require consistent state management so that user actions, gameplay progress, and displayed scores remain synchronized.",
     solution:
-      "Built a web-based testing interface with reusable components and responsive styling.",
+      "Built an interactive cricket application using React components and state-driven UI updates, with dedicated screens for configuration, gameplay, and score presentation.",
     features: [
-      "Multiple-choice question interface",
-      "Test-taking layout",
-      "Answer selection controls",
-      "Responsive page structure",
+      "Interactive cricket gameplay",
+      "Game configuration and settings",
+      "Gameplay preview and start flow",
+      "Dynamic score updates",
+      "Interactive game controls",
+      "Scoreboard interface",
+      "Responsive layouts",
+      "Component-based interface structure",
     ],
     architecture: [
-      "React components for test screens",
-      "Next.js application structure",
-      "TypeScript for typed UI code",
-      "Tailwind CSS for responsive styling",
+      "React component-based frontend",
+      "Vite development and build tooling",
+      "JavaScript application logic",
+      "State-driven gameplay interactions",
+      "CSS-based responsive interface",
     ],
     decisions: [
-      "Prioritise question readability and a clear answer-selection layout",
-      "Use reusable components for consistent interface patterns",
+      "Keep gameplay interactions driven by application state",
+      "Separate game configuration from the gameplay experience",
+      "Organize the interface into dedicated screens",
+      "Prioritize readable scoring and clear gameplay controls",
+      "Optimize layouts for different screen sizes",
     ],
-    stack: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    stack: [
+      "React",
+      "JavaScript",
+      "CSS",
+      "Vite",
+      "Vercel",
+      "Git"
+    ],
     screenshots: [
       {
-        src: "/projects/stest/test-screen.png",
-        alt: "STEST test-taking interface",
-        label: "Test screen",
+        src: "/projects/scricket/home page.png",
+        alt: "Home Screen",
+        label: "Home Screen",
       },
       {
-        src: "/projects/stest/questions.png",
-        alt: "STEST question layout",
-        label: "Questions",
+        src: "/projects/scricket/play.png",
+        alt: "Play Screen",
+        label: "Play Screen",
       },
       {
-        src: "/projects/stest/results.png",
-        alt: "STEST results interface",
-        label: "Results",
+        src: "/projects/scricket/preview.png",
+        alt: "Preview Screen",
+        label: "Preview Screen",
+      },
+      {
+        src: "/projects/scricket/setting.png",
+        alt: "Settings",
+        label: "Settings",
       },
     ],
+    githubUrl: "https://github.com/saqlainhub/SCricket",
+    liveUrl: "https://scricket.vercel.app",
   },
+
+  // 4. SaqlainHub Portfolio
+  {
+    id: "saqlainhub-portfolio",
+    name: "SaqlainHub Portfolio",
+    category: "Web Dev",
+    type: "Personal Portfolio Website",
+    description:
+      "A personal portfolio website developed to present software projects, technical skills, services, and professional information.",
+    overview:
+      "A personal developer portfolio showcasing software engineering projects, technical expertise, professional services, and experience through a structured website designed to establish a professional online presence.",
+    problem:
+      "Developers need a central place to present their projects, technical capabilities, and professional identity beyond individual code repositories.",
+    solution:
+      "Created a personal portfolio website with dedicated sections for professional information, services, skills, projects, and contact details.",
+    features: [
+      "Personal introduction and profile",
+      "About and experience sections",
+      "Services presentation",
+      "Technical skills showcase",
+      "Project portfolio",
+      "Testimonials section",
+      "Contact section",
+      "Responsive website layout",
+    ],
+    architecture: [
+      "Component-based website structure",
+      "Frontend-driven page composition",
+      "Reusable content sections",
+      "Responsive interface design",
+    ],
+    decisions: [
+      "Organize professional information into dedicated sections",
+      "Give projects and technical skills clear visibility",
+      "Use a consistent visual structure across the website",
+      "Keep contact information accessible",
+    ],
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "Vercel",
+      "Git"
+    ],
+    screenshots: [
+      {
+        src: "/projects/saqlainhub-portfolio/hero section.png",
+        alt: "Hero Section",
+        label: "Hero Section",
+      },
+      {
+        src: "/projects/saqlainhub-portfolio/about section.png",
+        alt: "About Section",
+        label: "About Section",
+      },
+      {
+        src: "/projects/saqlainhub-portfolio/expertise section.png",
+        alt: "Expertise Section",
+        label: "Expertise Section",
+      },
+      {
+        src: "/projects/saqlainhub-portfolio/projects section.png",
+        alt: "Projects Section",
+        label: "Projects Section",
+      },
+      {
+        src: "/projects/saqlainhub-portfolio/services section.png",
+        alt: "Services Section",
+        label: "Services Section",
+      },
+      {
+        src: "/projects/saqlainhub-portfolio/contact section.png",
+        alt: "Contact Section",
+        label: "Contact Section",
+      },
+    ],
+    githubUrl: "https://github.com/saqlainhub/SaqlainHub-Official",
+    liveUrl: "https://saqlainhub.vercel.app",
+  },
+
+  // 5. Old Portfolio Website
+  {
+    id: "old-portfolio",
+    name: "Old Portfolio Website",
+    category: "Web Dev",
+    type: "Earlier Personal Website",
+    description:
+      "An earlier personal website project developed as part of the progression toward building a professional developer portfolio.",
+    overview:
+      "An earlier personal portfolio project built to showcase development work, introduce technical skills, showcase expertise and explore personal branding through a dedicated web presence. It was old designed but was my first digital identity.",
+    problem:
+      "A personal portfolio needs to communicate a developer's identity and work through a clear and accessible web experience.",
+    solution:
+      "Developed an earlier portfolio website to explore personal branding, content presentation, and frontend website structure.",
+    features: [
+      "Personal portfolio presentation",
+      "Developer profile section",
+      "Project showcase",
+      "Frontend website layout",
+      "Personal branding",
+    ],
+    architecture: [
+      "Frontend website structure",
+      "Content-focused page layout",
+      "Reusable interface sections",
+    ],
+    decisions: [
+      "Use a portfolio format to present personal development work",
+      "Organize information into recognizable website sections",
+      "Treat the project as an earlier step in portfolio development",
+    ],
+    stack: [
+      "Html",
+      "CSS",
+      "JavaScript",
+      "Netlify",
+      "Git"
+    ],
+    screenshots: [
+      {
+        src: "/projects/old-portfolio/home section.png",
+        alt: "Hero Section",
+        label: "Hero Section",
+      },
+      {
+        src: "/projects/old-portfolio/about section.png",
+        alt: "About Section",
+        label: "About Section",
+      },
+      {
+        src: "/projects/old-portfolio/qualification section.png",
+        alt: "Qualification Section",
+        label: "Qualification Section",
+      },
+      {
+        src: "/projects/old-portfolio/services section.png",
+        alt: "Services Section",
+        label: "Services Section",
+      },
+      {
+        src: "/projects/old-portfolio/skills section.png",
+        alt: "Skills Section",
+        label: "Skills Section",
+      },
+      {
+        src: "/projects/old-portfolio/projects section.png",
+        alt: "Projects Section",
+        label: "Projects Section",
+      },
+      {
+        src: "/projects/old-portfolio/contact section.png",
+        alt: "Contact Section",
+        label: "Contact Section",
+      },
+    ],
+    githubUrl: "https://github.com/saqlainhub/Portfolio-Website",
+    liveUrl: "https://saqlainhub.netlify.app",
+  },
+
+  // 6. sPay
   {
     id: "spay",
     name: "sPay",
-    category: "Web Applications",
-    type: "Banking dashboard UI",
+    category: "Frontend Dev",
+    type: "Finance Management System",
     description:
-      "A banking-inspired frontend concept focused on account overview, dashboard layout, and navigation.",
+      "A banking-inspired project focused on account presentation, dashboard design, and digital financial interface.",
     overview:
-      "A frontend project exploring interface patterns used in digital banking products. It is a UI project, not a connected banking service.",
+      "sPay is a frontend banking interface concept exploring how digital financial products can organize account information and navigation through a clean dashboard experience. It is a UI project, not a connected banking or payment service.",
     problem:
-      "Dashboard interfaces need a clear information hierarchy and predictable navigation.",
+      "Financial dashboards need to present account information through a clear visual hierarchy while keeping navigation and important actions easy to understand.",
     solution:
-      "Created a frontend dashboard concept with reusable interface elements and responsive styling.",
+      "Designed and developed a banking-inspired interface with a login screen, dashboard layout, account overview, and responsive presentation.",
     features: [
       "Login interface",
-      "Dashboard layout",
+      "Banking-inspired dashboard",
       "Account overview presentation",
-      "Reusable interface components",
+      "Financial interface layout",
+      "Reusable UI components",
       "Responsive styling",
     ],
     architecture: [
       "React component-based frontend",
-      "JavaScript-driven interface",
+      "JavaScript interface logic",
       "Tailwind CSS styling",
+      "Responsive dashboard layout",
     ],
     decisions: [
-      "Keep key account information visually prominent",
-      "Use reusable interface elements for consistency",
+      "Prioritize information hierarchy in the dashboard",
+      "Keep account information visually organized",
+      "Use reusable components for interface consistency",
+      "Design responsive layouts for different screen sizes",
     ],
-    stack: ["React", "JavaScript", "Tailwind CSS"],
+    stack: [
+      "React",
+      "JavaScript",
+      "Tailwind CSS",
+      "UI"
+    ],
     screenshots: [
       {
         src: "/projects/spay/login.png",
-        alt: "sPay login interface",
-        label: "Login",
+        alt: "Login Page",
+        label: "Login Page",
       },
       {
         src: "/projects/spay/dashboard.png",
-        alt: "sPay dashboard concept",
+        alt: "Dashboard",
         label: "Dashboard",
       },
       {
-        src: "/projects/spay/mobile.png",
-        alt: "sPay mobile dashboard concept",
-        label: "Mobile layout",
-      },
-    ],
-  },
-  {
-    id: "newsify",
-    name: "Newsify",
-    category: "Web Applications",
-    type: "News website",
-    description:
-      "A content-focused website with article cards, navigation, responsive styling, and theme switching.",
-    overview:
-      "A frontend project using HTML, CSS, and JavaScript to explore content hierarchy and interactive web behaviour.",
-    problem:
-      "News interfaces need readable layouts that help visitors scan headlines and navigate content.",
-    solution:
-      "Built a responsive news-style interface with article cards, navigation controls, and a theme toggle.",
-    features: [
-      "Article-card layout",
-      "Navigation interactions",
-      "Light and dark theme toggle",
-      "Responsive styling",
-    ],
-    architecture: [
-      "HTML for page structure",
-      "CSS for layout and visual styling",
-      "JavaScript for interface interactions",
-    ],
-    decisions: [
-      "Prioritise readable content and scannable article cards",
-      "Provide theme switching for different viewing preferences",
-    ],
-    stack: ["HTML", "CSS", "JavaScript"],
-    screenshots: [
-      {
-        src: "/projects/newsify/home.png",
-        alt: "Newsify homepage",
-        label: "Homepage",
+        src: "/projects/spay/home.png",
+        alt: "Home",
+        label: "Home",
       },
       {
-        src: "/projects/newsify/articles.png",
-        alt: "Newsify article-card layout",
-        label: "Articles",
+        src: "/projects/spay/transactions.png",
+        alt: "Transactions",
+        label: "Transactions",
       },
       {
-        src: "/projects/newsify/dark-mode.png",
-        alt: "Newsify dark theme",
-        label: "Dark theme",
+        src: "/projects/spay/settings.png",
+        alt: "Settings",
+        label: "Settings",
       },
     ],
-  },
-  {
-    id: "scricket",
-    name: "SCricket",
-    category: "Web Applications",
-    type: "Interactive cricket application",
-    description:
-      "A cricket-themed React project exploring state-driven calculations and interactive interface controls.",
-    overview:
-      "A small interactive web application focused on React component structure and dynamic UI behaviour.",
-    problem:
-      "Interactive interfaces need their displayed values to update consistently when the user changes application state.",
-    solution:
-      "Built a React interface with state-driven calculations and Tailwind CSS styling.",
-    features: [
-      "Interactive cricket-themed interface",
-      "State-driven UI updates",
-      "Dynamic calculations",
-      "Reusable components",
-    ],
-    architecture: [
-      "React components for the interface",
-      "JavaScript for application logic",
-      "Tailwind CSS for styling",
-    ],
-    decisions: [
-      "Keep UI updates driven by application state",
-      "Separate visual components from calculation logic where appropriate",
-    ],
-    stack: ["React", "JavaScript", "Tailwind CSS"],
-    screenshots: [
-      {
-        src: "/projects/scricket/game.png",
-        alt: "SCricket interactive game interface",
-        label: "Game screen",
-      },
-      {
-        src: "/projects/scricket/score.png",
-        alt: "SCricket scoring interface",
-        label: "Scoring",
-      },
-    ],
+    githubUrl : "https://github.com/saqlainhub/sPay"
   },
 ];
 
+
 const filters = [
   "All",
-  "AI Engineering",
+  "Web Dev",
   "Full-Stack",
-  "Web Applications",
+  "AI Engineering",
+  "Frontend Dev"
 ] as const;
 
 type Filter = (typeof filters)[number];
@@ -555,7 +728,7 @@ function ImageGalleryModal({
         </div>
 
         {/* Full-width image stage */}
-        <div className="relative flex min-h-[240px] w-full flex-1 items-center justify-center overflow-hidden bg-[#090a0e] p-0">
+        <div className="relative flex h-[min(68dvh,800px)] min-h-[220px] w-full flex-none items-center justify-center overflow-hidden bg-[#090a0e] p-3 sm:p-5">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_50%_45%,rgba(120,120,140,0.12),transparent_65%)]" />
 
           {!imageFailed ? (
@@ -563,7 +736,7 @@ function ImageGalleryModal({
               key={current.src}
               src={current.src}
               alt={current.alt}
-              className="relative block h-full max-h-[68dvh] w-full object-contain"
+              className="relative block h-full max-h-full w-full max-w-full object-contain"
               onError={() =>
                 setFailedImages((previous) =>
                   previous.includes(current.src)
@@ -908,7 +1081,7 @@ function ScreenshotSlider({
 
   return (
     <div
-      className={`group/slider relative overflow-hidden bg-[var(--background-secondary)] ${
+      className={`group/slider relative overflow-hidden bg-[#090a0e] ${
         large ? "aspect-[16/10]" : "aspect-[16/10]"
       }`}
       aria-label={`${project.name} screenshots`}
@@ -921,7 +1094,7 @@ function ScreenshotSlider({
           src={current.src}
           alt={current.alt}
           loading="lazy"
-          className="absolute inset-0 h-full w-full object-cover object-top transition duration-500 group-hover/slider:scale-[1.015]"
+          className="absolute inset-0 h-full w-full object-contain p-2 sm:p-3"
           onError={() =>
             setFailedImages((previous) =>
               previous.includes(current.src)

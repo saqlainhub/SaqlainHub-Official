@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Portfolio of Saqlain Ahmad — Full Stack Software Engineer and AI Engineer.",
   icons: {
-    icon: "/favicon.jpeg",
+    icon: "/favicon.png",
   },
 };
 

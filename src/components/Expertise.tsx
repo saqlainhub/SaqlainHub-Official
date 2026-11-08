@@ -21,7 +21,7 @@ const services = [
     description:
       "AI-driven workflows that use tools, process information, and execute multi-step tasks with structured logic and clear control over actions.",
     tags: ["Tool Calling", "Agentic AI", "LangGraph"],
-    icon: "agent", 
+    icon: "agent",
     featured: true,
   },
   {
@@ -51,7 +51,7 @@ const services = [
     description:
       "Web-based workflows that connect APIs, databases, and external services to reduce repetitive tasks and streamline routine business operations.",
     tags: ["Background Jobs", "API Integration", "Webhooks"],
-    icon: "automation", 
+    icon: "automation",
     featured: false,
   },
   {
@@ -65,9 +65,6 @@ const services = [
     featured: false,
   },
 ];
-
-
-
 
 const stages = [
   {
@@ -91,7 +88,7 @@ const stages = [
       "UI/UX",
       "Wireframes",
       "Sitemaps",
-      "Design System"
+      "Design System",
     ],
     icon: "interface",
   },
@@ -107,7 +104,7 @@ const stages = [
       "Pydantic",
       "REST APIs",
       "Pytest",
-      "OAuth"
+      "OAuth",
     ],
     concepts: [
       "API Integration",
@@ -124,17 +121,12 @@ const stages = [
     subtitle: "Model and manage information",
     description:
       "Build reliable data layers that organize application information, support efficient queries, and manage persistence across full-stack and AI-powered systems.",
-    technologies: [
-      "PostgreSQL",
-      "SQLAlchemy",
-      "Prisma",
-      "Alembic"
-    ],
+    technologies: ["PostgreSQL", "SQLAlchemy", "Prisma", "Alembic"],
     concepts: [
       "Data Modeling",
       "ORMs",
       "Database Migrations",
-      "Object Storage"
+      "Object Storage",
     ],
     icon: "data",
   },
@@ -150,7 +142,7 @@ const stages = [
       "Embeddings",
       "Agentic AI",
       "LangGraph",
-      "Langchain"
+      "Langchain",
     ],
     concepts: [
       "Prompt Engineering",
@@ -183,8 +175,6 @@ const stages = [
     icon: "production",
   },
 ];
-
-
 
 function ServiceIcon({ type }: { type: string }) {
   const common = {
@@ -275,7 +265,6 @@ function ServiceIcon({ type }: { type: string }) {
   }
 }
 
-
 function StageIcon({ type }: { type: string }) {
   const common = {
     width: 23,
@@ -296,12 +285,14 @@ function StageIcon({ type }: { type: string }) {
           <path d="M3 8h18M7 5.8h.1M10 5.8h.1M7 12h4M7 16h10" />
         </svg>
       );
+
     case "application":
       return (
         <svg {...common}>
           <path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14" />
         </svg>
       );
+
     case "data":
       return (
         <svg {...common}>
@@ -309,6 +300,7 @@ function StageIcon({ type }: { type: string }) {
           <path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" />
         </svg>
       );
+
     case "ai":
       return (
         <svg {...common}>
@@ -317,6 +309,7 @@ function StageIcon({ type }: { type: string }) {
           <circle cx="12" cy="12" r="1" />
         </svg>
       );
+
     default:
       return (
         <svg {...common}>
@@ -331,6 +324,8 @@ export default function Expertise() {
   const [activeStage, setActiveStage] = useState(0);
   const [paused, setPaused] = useState(false);
 
+  // Automatic stage rotation. Restarts the timer whenever the selected
+  // stage changes or the user stops interacting with the roadmap.
   useEffect(() => {
     if (paused) return;
 
@@ -339,195 +334,188 @@ export default function Expertise() {
     }, 3600);
 
     return () => window.clearInterval(interval);
-  }, [paused]);
+  }, [paused, activeStage]);
 
   return (
     <>
-    <section
+      <section
+        className="relative overflow-hidden border-t py-14 sm:py-16 lg:py-20"
+        style={{
+          background: "var(--background)",
+          borderColor: "var(--border)",
+          color: "var(--foreground)",
+        }}
+      >
+        <div
+          className="pointer-events-none absolute -top-36 left-1/2 h-80 w-[min(85vw,800px)] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
+          style={{ background: "var(--accent)" }}
+        />
 
-      className="relative overflow-hidden border-t py-14 sm:py-16 lg:py-20"
-      style={{
-        background: "var(--background)",
-        borderColor: "var(--border)",
-        color: "var(--foreground)",
-      }}
-    >
-      <div className="pointer-events-none absolute -top-36 left-1/2 h-80 w-[min(85vw,800px)] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
-        style={{ background: "var(--accent)" }}
-      />
+        <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div id="services" className="mb-8 max-w-2xl sm:mb-10">
+            <p className="mb-3 inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.17em] text-[var(--accent)] sm:text-xs">
+              <span className="h-px w-7 bg-[var(--accent)]" />
+              What I Do
+            </p>
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+            <h2
+              id="expertise-title"
+              className="text-3xl font-bold tracking-[-0.04em] text-[var(--foreground)] sm:text-4xl md:text-5xl"
+            >
+              Code with purpose.{" "}
+              <br />
+              <span className="text-[var(--accent)]">
+                Solution with impact.
+              </span>
+            </h2>
 
-        {/* Main section heading */}
-        <div id="services" className="mb-8 max-w-2xl sm:mb-10 ">
-          <p className="mb-3 inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.17em] text-[var(--accent)] sm:text-xs">
-            <span className="h-px w-7 bg-[var(--accent)]" />
-            What I Do
-          </p>
+            <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--foreground-secondary)] sm:text-base">
+              I build AI-powered applications and full-stack software, combining
+              practical engineering with intelligent technologies to solve real problems.
+            </p>
+          </div>
 
-          <h2
-            id="expertise-title"
-            className="text-3xl font-bold tracking-[-0.04em] text-[var(--foreground)] sm:text-4xl md:text-5xl"
-          >
-           Code with purpose.{" "} <br/>
-            <span className="text-[var(--accent)]">Solution with impact.</span>
-          </h2>
-
-          <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--foreground-secondary)] sm:text-base">
-            I build AI-powered applications and full-stack software, combining
-            practical engineering with intelligent technologies to solve real problems.
-          </p>
-        </div>
-
-        {/* SERVICES */}
-        <div >
-
-          <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-            {services.map((service) => (
-              <article
-                key={service.number}
-                className="group relative flex min-h-[265px] flex-col overflow-hidden rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 sm:p-6"
-                style={{
-                  background: "var(--surface)",
-                  borderColor: "var(--border)",
-                }}
-                onMouseEnter={(event) => {
-                  event.currentTarget.style.borderColor = "var(--accent)";
-                }}
-                onMouseLeave={(event) => {
-                  event.currentTarget.style.borderColor = "var(--border)";
-                }}
-              >
-                <div
-                  className="pointer-events-none absolute -right-12 -top-12 size-36 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20"
-                  style={{ background: "var(--accent)" }}
-                />
-
-                <div className="relative flex items-start justify-between gap-3">
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {services.map((service) => (
+                <article
+                  key={service.number}
+                  className="group relative flex min-h-[265px] flex-col overflow-hidden rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 sm:p-6"
+                  style={{
+                    background: "var(--surface)",
+                    borderColor: "var(--border)",
+                  }}
+                  onMouseEnter={(event) => {
+                    event.currentTarget.style.borderColor = "var(--accent)";
+                  }}
+                  onMouseLeave={(event) => {
+                    event.currentTarget.style.borderColor = "var(--border)";
+                  }}
+                >
                   <div
-                    className="flex size-12 items-center justify-center rounded-xl border"
-                    style={{
-                      color: "var(--accent)",
-                      background: "var(--accent-soft)",
-                      borderColor: "var(--border)",
-                    }}
-                  >
-                    <ServiceIcon type={service.icon} />
-                  </div>
-                  <span
-                    className="pt-1 font-mono text-xs"
-                    style={{ color: "var(--foreground-muted)" }}
-                  >
-                    / {service.number}
-                  </span>
-                </div>
+                    className="pointer-events-none absolute -right-12 -top-12 size-36 rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-20"
+                    style={{ background: "var(--accent)" }}
+                  />
 
-                <p
-                  className="relative mt-5 text-[10px] font-semibold tracking-[0.16em]"
-                  style={{ color: "var(--accent)" }}
-                >
-                  {service.category}
-                </p>
-
-                <h4 className="relative mt-2 text-lg font-semibold tracking-tight sm:text-xl">
-                  {service.title}
-                </h4>
-
-                <p
-                  className="relative mt-2 text-sm leading-6"
-                  style={{ color: "var(--foreground-secondary)" }}
-                >
-                  {service.description}
-                </p>
-
-                <div className="relative mt-auto flex flex-wrap gap-2 pt-5">
-                  {service.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border px-2 py-1 text-[11px]"
+                  <div className="relative flex items-start justify-between gap-3">
+                    <div
+                      className="flex size-12 items-center justify-center rounded-xl border"
                       style={{
+                        color: "var(--accent)",
+                        background: "var(--accent-soft)",
                         borderColor: "var(--border)",
-                        color: "var(--foreground-muted)",
-                        background: "var(--background-secondary)",
                       }}
                     >
-                      {tag}
+                      <ServiceIcon type={service.icon} />
+                    </div>
+
+                    <span
+                      className="pt-1 font-mono text-xs"
+                      style={{ color: "var(--foreground-muted)" }}
+                    >
+                      / {service.number}
                     </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+                  </div>
+
+                  <p
+                    className="relative mt-5 text-[10px] font-semibold tracking-[0.16em]"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    {service.category}
+                  </p>
+
+                  <h4 className="relative mt-2 text-lg font-semibold tracking-tight sm:text-xl">
+                    {service.title}
+                  </h4>
+
+                  <p
+                    className="relative mt-2 text-sm leading-6"
+                    style={{ color: "var(--foreground-secondary)" }}
+                  >
+                    {service.description}
+                  </p>
+
+                  <div className="relative mt-auto flex flex-wrap gap-2 pt-5">
+                    {service.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-md border px-2 py-1 text-[11px]"
+                        style={{
+                          borderColor: "var(--border)",
+                          color: "var(--foreground-muted)",
+                          background: "var(--background-secondary)",
+                        }}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
           </div>
         </div>
 
-      </div>
-
-
-      
-
-      <style jsx>{`
-        @keyframes roadmap-dash {
-          from {
-            stroke-dashoffset: 0;
+        <style jsx>{`
+          @keyframes roadmap-dash {
+            from {
+              stroke-dashoffset: 0;
+            }
+            to {
+              stroke-dashoffset: -1000;
+            }
           }
-          to {
-            stroke-dashoffset: -1000;
-          }
-        }
 
-        .roadmap-progress {
-          animation: roadmap-dash 12s linear infinite;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
           .roadmap-progress {
-            animation: none;
+            animation: roadmap-dash 12s linear infinite;
           }
-        }
-      `}</style>
-    </section>
 
+          @media (prefers-reduced-motion: reduce) {
+            .roadmap-progress {
+              animation: none;
+            }
+          }
+        `}</style>
+      </section>
 
       <section
+        className="relative overflow-hidden border-t py-14 sm:py-16 lg:py-20"
+        style={{
+          background: "var(--background)",
+          borderColor: "var(--border)",
+          color: "var(--foreground)",
+        }}
+      >
+        <div
+          className="pointer-events-none absolute -top-36 left-1/2 h-80 w-[min(85vw,800px)] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
+          style={{ background: "var(--accent)" }}
+        />
 
-      className="relative overflow-hidden border-t py-14 sm:py-16 lg:py-20"
-      style={{
-        background: "var(--background)",
-        borderColor: "var(--border)",
-        color: "var(--foreground)",
-      }}
-    >
-      <div className="pointer-events-none absolute -top-36 left-1/2 h-80 w-[min(85vw,800px)] -translate-x-1/2 rounded-full opacity-20 blur-[120px]"
-        style={{ background: "var(--accent)" }}
-      />
-    
-    <section className="relative mx-auto max-w-7xl px-5 sm:px-8 lg:px-10 overflow-hidden">
-          
-          {/* Technical section heading */}
-          <div className=" mb-8 max-w-2xl  sm:mb-10">
-            <p id="expertise" className="mb-3 inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.17em] text-[var(--accent)] sm:text-xs ">
+        <section className="relative mx-auto max-w-7xl overflow-hidden px-5 sm:px-8 lg:px-10">
+          <div className="mb-8 max-w-2xl sm:mb-10">
+            <p
+              id="expertise"
+              className="mb-3 inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.17em] text-[var(--accent)] sm:text-xs"
+            >
               <span className="h-px w-7 bg-[var(--accent)]" />
               Technical Expertise
             </p>
 
-            <h2
-              
-              className="text-3xl font-bold tracking-[-0.04em] text-[var(--foreground)] sm:text-4xl md:text-5xl"
-            >
-              The Architecture{" "}
-              <br/>
-              <span className="text-[var(--accent)]">behind the software.</span>
+            <h2 className="text-3xl font-bold tracking-[-0.04em] text-[var(--foreground)] sm:text-4xl md:text-5xl">
+              The Architecture
+              <br />
+              <span className="text-[var(--accent)]">
+                behind the software.
+              </span>
             </h2>
 
             <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--foreground-secondary)] sm:text-base">
-              Explore the layers of a modern software system, from frontend interfaces and backend architecture to data, AI, and production infrastructure.
+              Explore the layers of a modern software system, from frontend
+              interfaces and backend architecture to data, AI, and production infrastructure.
             </p>
           </div>
 
-
-          {/* TECHNICAL ROADMAP */}
-          <div >
-
+          <div>
             <div
               className="relative rounded-3xl border p-4 sm:p-7 lg:p-9"
               style={{
@@ -538,7 +526,11 @@ export default function Expertise() {
               onMouseLeave={() => setPaused(false)}
               onFocusCapture={() => setPaused(true)}
               onBlurCapture={(event) => {
-                if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+                if (
+                  !event.currentTarget.contains(
+                    event.relatedTarget as Node | null
+                  )
+                ) {
                   setPaused(false);
                 }
               }}
@@ -550,6 +542,7 @@ export default function Expertise() {
                 >
                   SYSTEM BUILD PATH
                 </span>
+
                 <span
                   className="font-mono text-xs"
                   style={{ color: "var(--accent)" }}
@@ -558,7 +551,7 @@ export default function Expertise() {
                 </span>
               </div>
 
-              {/* Desktop game-like route */}
+              {/* Desktop roadmap */}
               <div className="relative hidden lg:block">
                 <svg
                   viewBox="0 0 1000 140"
@@ -574,6 +567,7 @@ export default function Expertise() {
                     strokeDasharray="7 9"
                     strokeLinecap="round"
                   />
+
                   <path
                     d="M 90 68 C 140 68, 145 112, 200 112 S 350 112, 400 68 S 550 24, 600 68 S 750 112, 800 112 S 900 68, 910 68"
                     stroke="var(--accent)"
@@ -581,7 +575,9 @@ export default function Expertise() {
                     strokeDasharray="80 1000"
                     strokeLinecap="round"
                     className="roadmap-progress"
-                    style={{ animationPlayState: paused ? "paused" : "running" }}
+                    style={{
+                      animationPlayState: paused ? "paused" : "running",
+                    }}
                   />
                 </svg>
 
@@ -597,23 +593,36 @@ export default function Expertise() {
                         aria-pressed={active}
                         aria-label={`Stage ${stage.number}: ${stage.title}`}
                         onClick={() => setActiveStage(index)}
-                        onMouseEnter={() => {
-                          setActiveStage(index);
-                          setPaused(true);
-                        }}
+                        onMouseEnter={() => setActiveStage(index)}
                         className="group flex min-w-0 flex-col items-center text-center outline-none"
                       >
                         <span
                           className="relative z-10 flex size-[58px] items-center justify-center rounded-2xl border-2 transition duration-300 group-hover:scale-110"
                           style={{
-                            marginTop: index === 1 || index === 3 ? "83px" : index === 2 ? "16px" : "40px",
-                            color: active || completed ? "var(--accent-foreground)" : "var(--foreground-muted)",
-                            background: active || completed ? "var(--accent)" : "var(--surface)",
-                            borderColor: active ? "var(--accent)" : "var(--border-strong)",
-                            boxShadow: active ? "0 0 0 7px var(--accent-soft), 0 0 30px var(--shadow-color)" : "none",
+                            marginTop:
+                              index === 1 || index === 3
+                                ? "83px"
+                                : index === 2
+                                  ? "16px"
+                                  : "40px",
+                            color:
+                              active || completed
+                                ? "var(--accent-foreground)"
+                                : "var(--foreground-muted)",
+                            background:
+                              active || completed
+                                ? "var(--accent)"
+                                : "var(--surface)",
+                            borderColor: active
+                              ? "var(--accent)"
+                              : "var(--border-strong)",
+                            boxShadow: active
+                              ? "0 0 0 7px var(--accent-soft), 0 0 30px var(--shadow-color)"
+                              : "none",
                           }}
                         >
                           <StageIcon type={stage.icon} />
+
                           {active && (
                             <span
                               className="absolute -right-1 -top-1 size-3 rounded-full border-2"
@@ -627,10 +636,15 @@ export default function Expertise() {
 
                         <span
                           className="mt-4 text-xs font-semibold tracking-wide transition sm:text-sm"
-                          style={{ color: active ? "var(--accent)" : "var(--foreground)" }}
+                          style={{
+                            color: active
+                              ? "var(--accent)"
+                              : "var(--foreground)",
+                          }}
                         >
                           {stage.title}
                         </span>
+
                         <span
                           className="mt-1 max-w-[145px] text-[11px] leading-5"
                           style={{ color: "var(--foreground-muted)" }}
@@ -643,13 +657,14 @@ export default function Expertise() {
                 </div>
               </div>
 
-              {/* Mobile and tablet route */}
+              {/* Mobile and tablet roadmap */}
               <div className="relative lg:hidden">
                 <div
                   className="absolute bottom-8 left-[21px] top-8 w-px"
                   style={{ background: "var(--border-strong)" }}
                   aria-hidden="true"
                 />
+
                 <div
                   className="absolute left-[21px] top-8 w-px transition-all duration-500"
                   style={{
@@ -672,27 +687,45 @@ export default function Expertise() {
                         onClick={() => setActiveStage(index)}
                         className="flex w-full items-center gap-4 rounded-xl border p-3 text-left transition duration-200 sm:p-4"
                         style={{
-                          borderColor: active ? "var(--accent)" : "var(--border)",
-                          background: active ? "var(--accent-soft)" : "var(--surface)",
+                          borderColor: active
+                            ? "var(--accent)"
+                            : "var(--border)",
+                          background: active
+                            ? "var(--accent-soft)"
+                            : "var(--surface)",
                         }}
                       >
                         <span
                           className="relative z-10 flex size-11 shrink-0 items-center justify-center rounded-xl border"
                           style={{
-                            color: active || completed ? "var(--accent-foreground)" : "var(--foreground-muted)",
-                            background: active || completed ? "var(--accent)" : "var(--surface)",
-                            borderColor: active ? "var(--accent)" : "var(--border-strong)",
+                            color:
+                              active || completed
+                                ? "var(--accent-foreground)"
+                                : "var(--foreground-muted)",
+                            background:
+                              active || completed
+                                ? "var(--accent)"
+                                : "var(--surface)",
+                            borderColor: active
+                              ? "var(--accent)"
+                              : "var(--border-strong)",
                           }}
                         >
                           <StageIcon type={stage.icon} />
                         </span>
+
                         <span className="min-w-0 flex-1">
                           <span
                             className="block text-sm font-semibold"
-                            style={{ color: active ? "var(--accent)" : "var(--foreground)" }}
+                            style={{
+                              color: active
+                                ? "var(--accent)"
+                                : "var(--foreground)",
+                            }}
                           >
                             {stage.number} / {stage.title}
                           </span>
+
                           <span
                             className="mt-1 block text-xs"
                             style={{ color: "var(--foreground-muted)" }}
@@ -700,9 +733,14 @@ export default function Expertise() {
                             {stage.subtitle}
                           </span>
                         </span>
+
                         <span
                           className="text-lg"
-                          style={{ color: active ? "var(--accent)" : "var(--foreground-muted)" }}
+                          style={{
+                            color: active
+                              ? "var(--accent)"
+                              : "var(--foreground-muted)",
+                          }}
                           aria-hidden="true"
                         >
                           {active ? "−" : "+"}
@@ -743,6 +781,7 @@ export default function Expertise() {
                       >
                         <StageIcon type={stages[activeStage].icon} />
                       </span>
+
                       <div>
                         <p
                           className="text-[10px] font-semibold uppercase tracking-[0.16em]"
@@ -750,6 +789,7 @@ export default function Expertise() {
                         >
                           Checkpoint {stages[activeStage].number}
                         </p>
+
                         <h4 className="mt-1 text-xl font-semibold">
                           {stages[activeStage].title}
                         </h4>
@@ -773,8 +813,12 @@ export default function Expertise() {
                           aria-pressed={activeStage === index}
                           className="h-1.5 rounded-full transition-all duration-300"
                           style={{
-                            width: activeStage === index ? "28px" : "10px",
-                            background: activeStage === index ? "var(--accent)" : "var(--border-strong)",
+                            width:
+                              activeStage === index ? "28px" : "10px",
+                            background:
+                              activeStage === index
+                                ? "var(--accent)"
+                                : "var(--border-strong)",
                           }}
                         />
                       ))}
@@ -789,20 +833,23 @@ export default function Expertise() {
                       >
                         Technologies & Tools
                       </p>
+
                       <div className="flex flex-wrap gap-2">
-                        {stages[activeStage].technologies.map((technology) => (
-                          <span
-                            key={technology}
-                            className="rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
-                            style={{
-                              color: "var(--foreground)",
-                              borderColor: "var(--border)",
-                              background: "var(--background-secondary)",
-                            }}
-                          >
-                            {technology}
-                          </span>
-                        ))}
+                        {stages[activeStage].technologies.map(
+                          (technology) => (
+                            <span
+                              key={technology}
+                              className="rounded-lg border px-3 py-2 text-xs font-medium transition-colors"
+                              style={{
+                                color: "var(--foreground)",
+                                borderColor: "var(--border)",
+                                background: "var(--background-secondary)",
+                              }}
+                            >
+                              {technology}
+                            </span>
+                          )
+                        )}
                       </div>
                     </div>
 
@@ -813,6 +860,7 @@ export default function Expertise() {
                       >
                         Engineering Concepts
                       </p>
+
                       <div className="flex flex-wrap gap-2">
                         {stages[activeStage].concepts.map((concept) => (
                           <span
@@ -842,9 +890,8 @@ export default function Expertise() {
               </p>
             </div>
           </div>
-
         </section>
-        </section>
+      </section>
     </>
   );
 }
